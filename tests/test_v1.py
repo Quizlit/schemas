@@ -1,14 +1,16 @@
-import unittest
 import json
+import unittest
 from pathlib import Path
 
-from jsonschema import validate, ValidationError
+from jsonschema import ValidationError, validate
 
 
 class TestBaseClass(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        cls.schema = json.loads(Path("src/schemas/v1/quizlit.json").read_text())
+        cls.schema = json.loads(
+            Path("src/schemas/v1/quizlit.json").read_text()
+        )
 
 
 class TestV1HappyPath(TestBaseClass):
@@ -17,22 +19,14 @@ class TestV1HappyPath(TestBaseClass):
         return [
             (
                 "name of test -- example 1",
-                {
-                    "productId": 1,
-                    "productName": "name_1",
-                    "price": 0.01
-                },
+                {"productId": 1, "productName": "name_1", "price": 0.01},
             ),
             (
                 "name of test -- example 2",
-                {
-                    "productId": 2,
-                    "productName": "name_2",
-                    "price": 1
-                },
+                {"productId": 2, "productName": "name_2", "price": 1},
             ),
         ]
-        
+
     def test_v1(self):
         for name, data in self.get_test_cases():
             with self.subTest(msg=name):
@@ -49,21 +43,14 @@ class TestV1Errors(TestBaseClass):
             ),
             (
                 "Price is zero",
-                {
-                    "productId": 1,
-                    "productName": "name_1",
-                    "price": 0
-                },
+                {"productId": 1, "productName": "name_1", "price": 0},
             ),
             (
                 "missing ProductName",
-                {
-                    "productId": 2,
-                    "price": 1
-                },
+                {"productId": 2, "price": 1},
             ),
         ]
-        
+
     def test_v1(self):
         for name, data in self.get_test_cases():
             with self.subTest(msg=name):
@@ -71,5 +58,5 @@ class TestV1Errors(TestBaseClass):
                     validate(instance=data, schema=self.schema)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
