@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_requests:
+  pull_request:
 jobs:
   runs-on: ubuntu-latest
   steps:
