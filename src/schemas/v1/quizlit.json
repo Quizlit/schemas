@@ -1,26 +1,130 @@
 {
+  "$defs": {
+    "answer": {
+      "description": "A potential answer to the question",
+      "properties": {
+        "answer": {
+          "$ref": "#/$defs/answer_text"
+        },
+        "explanation": {
+          "$ref": "#/$defs/explanation"
+        }
+      },
+      "required": [
+        "answer"
+      ],
+      "type": "object"
+    },
+    "answer_text": {
+      "definition": "a potential answer to the question",
+      "type": "string"
+    },
+    "answers": {
+      "description": "A container for both correct and incorrect answers",
+      "properties": {
+        "correct": {
+          "description": "List of correct answers",
+          "items": {
+            "$ref": "#/$defs/answer"
+          },
+          "minLength": 1,
+          "type": "array"
+        },
+        "incorrect": {
+          "description": "List of incorrect answers",
+          "items": {
+            "$ref": "#/$defs/answer"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "correct": {
+      "definition": "A flag to denote if this answer is correct",
+      "type": "boolean"
+    },
+    "explanation": {
+      "description": "An explanation as to why the answer is correct or wrong",
+      "type": "string"
+    },
+    "question_text": {
+      "description": "The question as text",
+      "minLength": 1,
+      "type": "string"
+    },
+    "true_false_answers": {
+      "description": "A container for true false answers",
+      "properties": {
+        "correct": {
+          "$ref": "#/$defs/answer"
+        },
+        "incorrect": {
+          "$ref": "#/$defs/answer"
+        }
+      },
+      "required": [
+        "correct",
+        "incorrect"
+      ],
+      "type": "object"
+    },
+    "true_false_question": {
+      "description": "A True or False Question",
+      "properties": {
+        "answers": {
+          "$ref": "#/$defs/true_false_answers"
+        },
+        "question": {
+          "$ref": "#/$defs/question_text"
+        }
+      },
+      "required": [
+        "question",
+        "answers"
+      ],
+      "type": "object"
+    }
+  },
   "$id": "https://example.com/product.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "description": "A product from Acme's catalog",
+  "description": "A question config for Quizlit",
   "properties": {
-    "price": {
-      "description": "The price of the product",
-      "exclusiveMinimum": 0,
+    "batch_size": {
+      "description": "How many questions should be placed into each quiz",
+      "exclusive_minimum": 0,
       "type": "number"
     },
-    "productId": {
-      "description": "The unique identifier for a product",
-      "type": "integer"
-    },
-    "productName": {
-      "description": "Name of the product",
+    "name": {
+      "description": "Name of this set of quizzes",
       "type": "string"
+    },
+    "passing_score": {
+      "description": "The percentage of correct answers needed to pass the quiz",
+      "maximum": 100,
+      "minimum": 0,
+      "type": "number"
+    },
+    "questions": {
+      "contains": {
+        "anyOf": [
+          {
+            "$ref": "#/$defs/true_false_question"
+          }
+        ]
+      },
+      "description": "List of questions to be used for the quizzes",
+      "minContains": 1,
+      "type": "array"
+    },
+    "random": {
+      "description": "Should the questions be randomized?",
+      "type": "boolean"
     }
   },
   "required": [
-    "productId",
-    "productName",
-    "price"
+    "name",
+    "questions"
   ],
   "title": "Product",
   "type": "object"

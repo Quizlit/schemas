@@ -19,11 +19,21 @@ class TestV1HappyPath(TestBaseClass):
         return [
             (
                 "name of test -- example 1",
-                {"productId": 1, "productName": "name_1", "price": 0.01},
-            ),
-            (
-                "name of test -- example 2",
-                {"productId": 2, "productName": "name_2", "price": 1},
+                {
+                    "name": "testing",
+                    "questions": [
+                        {
+                            "question": "true or false questions",
+                            "answers": {
+                                "correct": {"answer": "Yessir"},
+                                "incorrect": {
+                                    "answer": "WRONG",
+                                    "explanation": "Because I said so",
+                                },
+                            },
+                        },
+                    ],
+                },
             ),
         ]
 
