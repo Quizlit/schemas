@@ -1,0 +1,21 @@
+name: "Tests and Linting"
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+  pull_requests:
+jobs:
+  runs-on: ubuntu-latest
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Dev Env
+      run: pip install -r requirements/dev.txt
+
+    - name: Linting
+      run: tox -e lint
+
+    - name: Unit tests
+      run: tox
