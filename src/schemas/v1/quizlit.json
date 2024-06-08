@@ -1,6 +1,7 @@
 {
   "$defs": {
     "answer": {
+      "additionalProperties": false,
       "description": "A potential answer to the question",
       "properties": {
         "answer": {
@@ -17,9 +18,11 @@
     },
     "answer_text": {
       "definition": "a potential answer to the question",
+      "minLength": 1,
       "type": "string"
     },
     "answers": {
+      "additionalProperties": false,
       "description": "A container for both correct and incorrect answers",
       "properties": {
         "correct": {
@@ -48,12 +51,89 @@
       "description": "An explanation as to why the answer is correct or wrong",
       "type": "string"
     },
+    "order_answers": {
+      "additionalProperties": false,
+      "description": "A container for ordered answers",
+      "properties": {
+        "correct": {
+          "items": {
+            "$ref": "#/$defs/answer"
+          },
+          "minLength": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "correct"
+      ],
+      "type": "object"
+    },
+    "order_question": {
+      "additionalProperties": false,
+      "description": "Select the answer in the correct order",
+      "properties": {
+        "answers": {
+          "$ref": "#/$defs/order_answers"
+        },
+        "question": {
+          "$ref": "#/$defs/question_text"
+        }
+      },
+      "required": [
+        "answers",
+        "question"
+      ],
+      "type": "object"
+    },
     "question_text": {
       "description": "The question as text",
       "minLength": 1,
       "type": "string"
     },
+    "selection_answers": {
+      "additionalProperties": false,
+      "description": "A containter for selection answers",
+      "properties": {
+        "correct": {
+          "items": {
+            "$ref": "#/$defs/answer"
+          },
+          "minLength": 1,
+          "type": "array"
+        },
+        "incorrect": {
+          "items": {
+            "$ref": "#/$defs/answer"
+          },
+          "minLength": 1,
+          "type": "array"
+        }
+      },
+      "required": [
+        "correct",
+        "incorrect"
+      ],
+      "type": "object"
+    },
+    "selection_question": {
+      "additionalProperties": false,
+      "description": "Among the given answers, select the correct ones",
+      "properties": {
+        "answers": {
+          "$ref": "#/$defs/selection_answers"
+        },
+        "question": {
+          "$ref": "#/$defs/question_text"
+        }
+      },
+      "required": [
+        "answers",
+        "question"
+      ],
+      "type": "object"
+    },
     "true_false_answers": {
+      "additionalProperties": false,
       "description": "A container for true false answers",
       "properties": {
         "correct": {
@@ -70,6 +150,7 @@
       "type": "object"
     },
     "true_false_question": {
+      "additionalProperties": false,
       "description": "A True or False Question",
       "properties": {
         "answers": {
@@ -88,6 +169,7 @@
   },
   "$id": "https://example.com/product.schema.json",
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
   "description": "A question config for Quizlit",
   "properties": {
     "batch_size": {
@@ -106,14 +188,20 @@
       "type": "number"
     },
     "questions": {
-      "contains": {
-        "anyOf": [
+      "description": "List of questions to be used for the quizzes",
+      "items": {
+        "oneOf": [
           {
             "$ref": "#/$defs/true_false_question"
+          },
+          {
+            "$ref": "#/$defs/selection_question"
+          },
+          {
+            "$ref": "#/$defs/order_question"
           }
         ]
       },
-      "description": "List of questions to be used for the quizzes",
       "minContains": 1,
       "type": "array"
     },
@@ -126,6 +214,6 @@
     "name",
     "questions"
   ],
-  "title": "Product",
+  "title": "Quizlet",
   "type": "object"
 }

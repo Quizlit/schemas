@@ -32,6 +32,84 @@ class TestV1HappyPath(TestBaseClass):
                                 },
                             },
                         },
+                        {
+                            "question": "selection question",
+                            "answers": {
+                                "correct": [
+                                    {"answer": "1"},
+                                    {"answer": "2"},
+                                    {"answer": "3"},
+                                ],
+                                "incorrect": [
+                                    {
+                                        "answer": "nope",
+                                        "explanation": "Not a number",
+                                    },
+                                ],
+                            },
+                        },
+                        {
+                            "question": "order question",
+                            "answers": {
+                                "correct": [
+                                    {"answer": "1"},
+                                    {"answer": "2"},
+                                    {"answer": "3"},
+                                ],
+                            },
+                        },
+                    ],
+                },
+            ),
+            (
+                "True and False question",
+                {
+                    "name": "True and False questions",
+                    "questions": [
+                        {
+                            "question": "true or false questions",
+                            "answers": {
+                                "correct": {"answer": "Yessir"},
+                                "incorrect": {
+                                    "answer": "WRONG",
+                                    "explanation": "Because I said so",
+                                },
+                            },
+                        },
+                    ],
+                },
+            ),
+            (
+                "selection questions",
+                {
+                    "name": "Selection questions",
+                    "questions": [
+                        {
+                            "question": "true or false questions",
+                            "answers": {
+                                "correct": [{"answer": "Yessir"}],
+                                "incorrect": [
+                                    {
+                                        "answer": "WRONG",
+                                        "explanation": "Because I said so",
+                                    }
+                                ],
+                            },
+                        },
+                    ],
+                },
+            ),
+            (
+                "order questions",
+                {
+                    "name": "Order questions",
+                    "questions": [
+                        {
+                            "question": "true or false questions",
+                            "answers": {
+                                "correct": [{"answer": "1"}, {"answer": "2"}],
+                            },
+                        },
                     ],
                 },
             ),
@@ -52,12 +130,93 @@ class TestV1Errors(TestBaseClass):
                 {},
             ),
             (
-                "Price is zero",
+                "wrong shcema",
                 {"productId": 1, "productName": "name_1", "price": 0},
             ),
             (
-                "missing ProductName",
-                {"productId": 2, "price": 1},
+                "question but no answers",
+                {
+                    "name": "Question by no answers",
+                    "questions": [
+                        {"question": "question"},
+                    ],
+                },
+            ),
+            (
+                "Question with no correct answer -- True or false",
+                {
+                    "name": "question with no correct answer",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "incorrect": {"answer": "answer"},
+                            },
+                        }
+                    ],
+                },
+            ),
+            (
+                "Question with no correct answer",
+                {
+                    "name": "Question with no correct answer",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answer": {
+                                "incorrect": [
+                                    {"answer": "answer_2"},
+                                    {"answer": "answer_2"},
+                                ],
+                            },
+                        },
+                    ],
+                },
+            ),
+            (
+                "Empty question",
+                {
+                    "name": "Empty question",
+                    "questions": [
+                        {
+                            "question": "",
+                            "answers": {
+                                "correct": {"answer": "answer"},
+                                "incorrect": {"answer", "answer"},
+                            },
+                        },
+                    ],
+                },
+            ),
+            (
+                "Empty answer",
+                {
+                    "name": "Exmpty_answer",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "correct": {"answer": ""},
+                                "incorrect": {"answer": "answer"},
+                            },
+                        },
+                    ],
+                },
+            ),
+            (
+                "Empty correct answer object",
+                {
+                    "name": "Emptpy correct answer object",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "correct": {},
+                                "incorrect": {"answer", "answer"},
+                            },
+                        },
+                    ],
+                },
             ),
         ]
 
