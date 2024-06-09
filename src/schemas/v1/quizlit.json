@@ -75,13 +75,18 @@
         "answers": {
           "$ref": "#/$defs/order_answers"
         },
+        "kind": {
+          "pattern": "^order$",
+          "type": "string"
+        },
         "question": {
           "$ref": "#/$defs/question_text"
         }
       },
       "required": [
         "answers",
-        "question"
+        "question",
+        "kind"
       ],
       "type": "object"
     },
@@ -122,13 +127,18 @@
         "answers": {
           "$ref": "#/$defs/selection_answers"
         },
+        "kind": {
+          "pattern": "^selection$",
+          "type": "string"
+        },
         "question": {
           "$ref": "#/$defs/question_text"
         }
       },
       "required": [
         "answers",
-        "question"
+        "question",
+        "kind"
       ],
       "type": "object"
     },
@@ -156,13 +166,18 @@
         "answers": {
           "$ref": "#/$defs/true_false_answers"
         },
+        "kind": {
+          "pattern": "^true_false$",
+          "type": "string"
+        },
         "question": {
           "$ref": "#/$defs/question_text"
         }
       },
       "required": [
         "question",
-        "answers"
+        "answers",
+        "kind"
       ],
       "type": "object"
     },

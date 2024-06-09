@@ -31,6 +31,7 @@ class TestV1HappyPath(TestBaseClass):
                                     "explanation": "Because I said so",
                                 },
                             },
+                            "kind": "true_false",
                         },
                         {
                             "question": "selection question",
@@ -47,6 +48,7 @@ class TestV1HappyPath(TestBaseClass):
                                     },
                                 ],
                             },
+                            "kind": "selection",
                         },
                         {
                             "question": "order question",
@@ -57,6 +59,7 @@ class TestV1HappyPath(TestBaseClass):
                                     {"answer": "3"},
                                 ],
                             },
+                            "kind": "order",
                         },
                     ],
                 },
@@ -67,7 +70,7 @@ class TestV1HappyPath(TestBaseClass):
                     "name": "True and False questions",
                     "questions": [
                         {
-                            "question": "true or false questions",
+                            "question": "question",
                             "answers": {
                                 "correct": {"answer": "Yessir"},
                                 "incorrect": {
@@ -75,6 +78,7 @@ class TestV1HappyPath(TestBaseClass):
                                     "explanation": "Because I said so",
                                 },
                             },
+                            "kind": "true_false",
                         },
                     ],
                 },
@@ -95,6 +99,7 @@ class TestV1HappyPath(TestBaseClass):
                                     }
                                 ],
                             },
+                            "kind": "selection",
                         },
                     ],
                 },
@@ -105,10 +110,27 @@ class TestV1HappyPath(TestBaseClass):
                     "name": "Order questions",
                     "questions": [
                         {
-                            "question": "true or false questions",
+                            "question": "question",
                             "answers": {
                                 "correct": [{"answer": "1"}, {"answer": "2"}],
                             },
+                            "kind": "order",
+                        },
+                    ],
+                },
+            ),
+            (
+                "user_input questions",
+                {
+                    "name": "User Input questions",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "accepted": ["answer", "2"],
+                                "caseSensitive": False,
+                            },
+                            "kind": "user_input",
                         },
                     ],
                 },
@@ -140,6 +162,7 @@ class TestV1Errors(TestBaseClass):
                     "questions": [
                         {"question": "question"},
                     ],
+                    "kind": "true_false",
                 },
             ),
             (
@@ -152,6 +175,7 @@ class TestV1Errors(TestBaseClass):
                             "answers": {
                                 "incorrect": {"answer": "answer"},
                             },
+                            "kind": "true_false",
                         }
                     ],
                 },
@@ -169,6 +193,7 @@ class TestV1Errors(TestBaseClass):
                                     {"answer": "answer_2"},
                                 ],
                             },
+                            "kind": "selection",
                         },
                     ],
                 },
@@ -184,6 +209,7 @@ class TestV1Errors(TestBaseClass):
                                 "correct": {"answer": "answer"},
                                 "incorrect": {"answer", "answer"},
                             },
+                            "kind": "true_false",
                         },
                     ],
                 },
@@ -199,6 +225,7 @@ class TestV1Errors(TestBaseClass):
                                 "correct": {"answer": ""},
                                 "incorrect": {"answer": "answer"},
                             },
+                            "kind": "true_false",
                         },
                     ],
                 },
@@ -214,6 +241,7 @@ class TestV1Errors(TestBaseClass):
                                 "correct": {},
                                 "incorrect": {"answer", "answer"},
                             },
+                            "kind": "true_false",
                         },
                     ],
                 },
