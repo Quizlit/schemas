@@ -19,11 +19,121 @@ class TestV1HappyPath(TestBaseClass):
         return [
             (
                 "name of test -- example 1",
-                {"productId": 1, "productName": "name_1", "price": 0.01},
+                {
+                    "name": "testing",
+                    "questions": [
+                        {
+                            "question": "true or false questions",
+                            "answers": {
+                                "correct": {"answer": "Yessir"},
+                                "incorrect": {
+                                    "answer": "WRONG",
+                                    "explanation": "Because I said so",
+                                },
+                            },
+                            "kind": "true_false",
+                        },
+                        {
+                            "question": "selection question",
+                            "answers": {
+                                "correct": [
+                                    {"answer": "1"},
+                                    {"answer": "2"},
+                                    {"answer": "3"},
+                                ],
+                                "incorrect": [
+                                    {
+                                        "answer": "nope",
+                                        "explanation": "Not a number",
+                                    },
+                                ],
+                            },
+                            "kind": "selection",
+                        },
+                        {
+                            "question": "order question",
+                            "answers": {
+                                "correct": [
+                                    {"answer": "1"},
+                                    {"answer": "2"},
+                                    {"answer": "3"},
+                                ],
+                            },
+                            "kind": "order",
+                        },
+                    ],
+                },
             ),
             (
-                "name of test -- example 2",
-                {"productId": 2, "productName": "name_2", "price": 1},
+                "True and False question",
+                {
+                    "name": "True and False questions",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "correct": {"answer": "Yessir"},
+                                "incorrect": {
+                                    "answer": "WRONG",
+                                    "explanation": "Because I said so",
+                                },
+                            },
+                            "kind": "true_false",
+                        },
+                    ],
+                },
+            ),
+            (
+                "selection questions",
+                {
+                    "name": "Selection questions",
+                    "questions": [
+                        {
+                            "question": "true or false questions",
+                            "answers": {
+                                "correct": [{"answer": "Yessir"}],
+                                "incorrect": [
+                                    {
+                                        "answer": "WRONG",
+                                        "explanation": "Because I said so",
+                                    }
+                                ],
+                            },
+                            "kind": "selection",
+                        },
+                    ],
+                },
+            ),
+            (
+                "order questions",
+                {
+                    "name": "Order questions",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "correct": [{"answer": "1"}, {"answer": "2"}],
+                            },
+                            "kind": "order",
+                        },
+                    ],
+                },
+            ),
+            (
+                "user_input questions",
+                {
+                    "name": "User Input questions",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "accepted": ["answer", "2"],
+                                "caseSensitive": False,
+                            },
+                            "kind": "user_input",
+                        },
+                    ],
+                },
             ),
         ]
 
@@ -42,12 +152,99 @@ class TestV1Errors(TestBaseClass):
                 {},
             ),
             (
-                "Price is zero",
+                "wrong shcema",
                 {"productId": 1, "productName": "name_1", "price": 0},
             ),
             (
-                "missing ProductName",
-                {"productId": 2, "price": 1},
+                "question but no answers",
+                {
+                    "name": "Question by no answers",
+                    "questions": [
+                        {"question": "question"},
+                    ],
+                    "kind": "true_false",
+                },
+            ),
+            (
+                "Question with no correct answer -- True or false",
+                {
+                    "name": "question with no correct answer",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "incorrect": {"answer": "answer"},
+                            },
+                            "kind": "true_false",
+                        }
+                    ],
+                },
+            ),
+            (
+                "Question with no correct answer",
+                {
+                    "name": "Question with no correct answer",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answer": {
+                                "incorrect": [
+                                    {"answer": "answer_2"},
+                                    {"answer": "answer_2"},
+                                ],
+                            },
+                            "kind": "selection",
+                        },
+                    ],
+                },
+            ),
+            (
+                "Empty question",
+                {
+                    "name": "Empty question",
+                    "questions": [
+                        {
+                            "question": "",
+                            "answers": {
+                                "correct": {"answer": "answer"},
+                                "incorrect": {"answer", "answer"},
+                            },
+                            "kind": "true_false",
+                        },
+                    ],
+                },
+            ),
+            (
+                "Empty answer",
+                {
+                    "name": "Exmpty_answer",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "correct": {"answer": ""},
+                                "incorrect": {"answer": "answer"},
+                            },
+                            "kind": "true_false",
+                        },
+                    ],
+                },
+            ),
+            (
+                "Empty correct answer object",
+                {
+                    "name": "Emptpy correct answer object",
+                    "questions": [
+                        {
+                            "question": "question",
+                            "answers": {
+                                "correct": {},
+                                "incorrect": {"answer", "answer"},
+                            },
+                            "kind": "true_false",
+                        },
+                    ],
+                },
             ),
         ]
 
