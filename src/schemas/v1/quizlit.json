@@ -165,6 +165,48 @@
         "answers"
       ],
       "type": "object"
+    },
+    "user_input_answers": {
+      "additionalProperties": false,
+      "description": "A container for user_input answers",
+      "properties": {
+        "accepted": {
+          "description": "List of acceptable answers. If the user input matches any of these answers, then their answer is correct",
+          "items": {
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "caseSensitive": {
+          "default": true,
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "accepted"
+      ]
+    },
+    "user_input_question": {
+      "additionalProperties": false,
+      "properties": {
+        "answers": {
+          "$ref": "#/$defs/user_input_answers"
+        },
+        "kind": {
+          "pattern": "^user_input$",
+          "type": "string"
+        },
+        "question": {
+          "$ref": "#/$defs/question_text"
+        }
+      },
+      "required": [
+        "question",
+        "answers",
+        "kind"
+      ],
+      "type": "object"
     }
   },
   "$id": "https://example.com/product.schema.json",
@@ -199,6 +241,9 @@
           },
           {
             "$ref": "#/$defs/order_question"
+          },
+          {
+            "$ref": "#/$defs/user_input_question"
           }
         ]
       },
