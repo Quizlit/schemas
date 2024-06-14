@@ -1,0 +1,354 @@
+{
+  "name": "20 Questions",
+  "questions": [
+    {
+      "answers": {
+        "correct": {
+          "answer": "True",
+          "explanation": "Because 7 8 (ate) 9"
+        },
+        "incorrect": {
+          "answer": "False",
+          "explanation": "Because 7 8 (ate) 9"
+        }
+      },
+      "kind": "true_false",
+      "question": "Is the number 9 is afraid of the number 7?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "Gum Gum Fruit"
+          }
+        ],
+        "incorrect": [
+          {
+            "answer": "Stretch Stretch Fruit"
+          },
+          {
+            "answer": "Ruber Ruber Fruit"
+          },
+          {
+            "answer": "Hungry Hungry Fruit"
+          }
+        ]
+      },
+      "kind": "selection",
+      "question": "What devil fruit did Luffy eat?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "Amazon Lily Arc"
+          },
+          {
+            "answer": "Impel Down Arc"
+          },
+          {
+            "answer": "Marineford Arc"
+          },
+          {
+            "answer": "Post-War Arc"
+          }
+        ]
+      },
+      "kind": "order",
+      "question": "What is the correct order of these One Piece Arcs?"
+    },
+    {
+      "answers": {
+        "accepted": [
+          "Lucy"
+        ],
+        "caseSensitive": false
+      },
+      "kind": "user_input",
+      "question": "What is the name Luffy uses to enter the Colosseum in Dressrosa?"
+    },
+    {
+      "answers": {
+        "correct": {
+          "answer": "False",
+          "explanation": "The longest-running anime series is \"Sazae-san,\" which started broadcasting on October 5, 1969, and is currently still in production with over 2,640 episodes."
+        },
+        "incorrect": {
+          "answer": "True",
+          "explanation": "The longest-running anime series is \"Sazae-san,\" which started broadcasting on October 5, 1969, and is currently still in production with over 2,640 episodes."
+        }
+      },
+      "kind": "true_false",
+      "question": "Is One Piece is the longest running anime?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "Franky blew him into the ocean"
+          }
+        ],
+        "incorrect": [
+          {
+            "answer": "Sanji kicked him in the head"
+          },
+          {
+            "answer": "Chopper was never stopped"
+          },
+          {
+            "answer": "His transformation hit its time limit and he changed back"
+          }
+        ]
+      },
+      "kind": "selection",
+      "question": "At Enies Lobby, how was Chopper's 'monster form' stopped?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "Orange Town Arc"
+          },
+          {
+            "answer": "Syrup Village Arc"
+          },
+          {
+            "answer": "Baratie Arc"
+          },
+          {
+            "answer": "Arlong Park Arc"
+          }
+        ]
+      },
+      "kind": "order",
+      "question": "What is the correct order of these One Piece Arcs?"
+    },
+    {
+      "answers": {
+        "accepted": [
+          "Arlong"
+        ],
+        "caseSensitive": false
+      },
+      "kind": "user_input",
+      "question": "What crew did Nami work for before joining Luffy's crew?"
+    },
+    {
+      "answers": {
+        "correct": {
+          "answer": "True"
+        },
+        "incorrect": {
+          "answer": "False",
+          "explanation": "Normally he has three transformations, but if he uses the rumble pill it goes up to seven transformations. When he uses the rumble pill three times he goes to his final form and goes berserk."
+        }
+      },
+      "kind": "true_false",
+      "question": "Chopper has a total of 8 transformations?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "Buggy"
+          },
+          {
+            "answer": "Shanks"
+          },
+          {
+            "answer": "Croccus"
+          },
+          {
+            "answer": "Reyleigh"
+          }
+        ],
+        "incorrect": [
+          {
+            "answer": "Ace"
+          }
+        ]
+      },
+      "kind": "selection",
+      "question": "Which characters are from Gol D. Roger's crew (that are alive)?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "Zoro"
+          },
+          {
+            "answer": "Nami"
+          },
+          {
+            "answer": "Usopp"
+          },
+          {
+            "answer": "Sanji"
+          },
+          {
+            "answer": "Chopper"
+          },
+          {
+            "answer": "Robin"
+          }
+        ]
+      },
+      "kind": "order",
+      "question": "In what order did they joinLuffy's crew?"
+    },
+    {
+      "answers": {
+        "accepted": [
+          "Poseidon"
+        ],
+        "caseSensitive": true
+      },
+      "kind": "user_input",
+      "question": "What weapon's location did the Poneglyph that Robin found beneath the giant golden bell in Skypiea reveal?"
+    },
+    {
+      "answers": {
+        "correct": {
+          "answer": "True"
+        },
+        "incorrect": {
+          "answer": "False"
+        }
+      },
+      "kind": "true_false",
+      "question": "Nico Robin's codename while she was an agent with the Baroque Works was Miss All Sunday?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "3"
+          }
+        ],
+        "incorrect": [
+          {
+            "answer": "2"
+          },
+          {
+            "answer": "4"
+          },
+          {
+            "answer": "5"
+          }
+        ]
+      },
+      "kind": "selection",
+      "question": "How many people have owned Luffy's straw hat, including Luffy himself?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "Ax-Hand Morgan"
+          },
+          {
+            "answer": "Buggy"
+          },
+          {
+            "answer": "Captain Kuro"
+          },
+          {
+            "answer": "Don Krieg"
+          },
+          {
+            "answer": "Arlong"
+          },
+          {
+            "answer": "Wapol"
+          }
+        ]
+      },
+      "kind": "order",
+      "question": "Select the people Luffy fought in order."
+    },
+    {
+      "answers": {
+        "accepted": [
+          "Law",
+          "Tri guy",
+          "Trafalgar",
+          "Trafalgar Law"
+        ],
+        "caseSensitive": false
+      },
+      "kind": "user_input",
+      "question": "Who is the captain of the Hear Pirates?"
+    },
+    {
+      "answers": {
+        "correct": {
+          "answer": "True"
+        },
+        "incorrect": {
+          "answer": "False"
+        }
+      },
+      "kind": "true_false",
+      "question": "Luffy's father's name is Dragon?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "SMILE"
+          }
+        ],
+        "incorrect": [
+          {
+            "answer": "LAUGH"
+          },
+          {
+            "answer": "SMIRK"
+          },
+          {
+            "answer": "HIHI"
+          }
+        ]
+      },
+      "kind": "selection",
+      "question": "What are the artificial devil fruits that Caesar Clown created called?"
+    },
+    {
+      "answers": {
+        "correct": [
+          {
+            "answer": "East Blue"
+          },
+          {
+            "answer": "Arabasta"
+          },
+          {
+            "answer": "Sky Island"
+          },
+          {
+            "answer": "Water 7"
+          },
+          {
+            "answer": "Thriller Bark"
+          },
+          {
+            "answer": "Summit War"
+          }
+        ]
+      },
+      "kind": "order",
+      "question": "Select the One Piece Sagas in order."
+    },
+    {
+      "answers": {
+        "accepted": [
+          "racoon"
+        ],
+        "caseSensitive": false
+      },
+      "kind": "user_input",
+      "question": "What animal does Chopper resemble?"
+    }
+  ]
+}
