@@ -1,4 +1,6 @@
 import json
+import os
+import os.path
 import unittest
 from pathlib import Path
 
@@ -11,6 +13,19 @@ class TestBaseClass(unittest.TestCase):
         cls.schema = json.loads(
             Path("src/schemas/v1/quizlit.json").read_text()
         )
+
+
+class TestExamples(TestBaseClass):
+    def test_v1_examples(self):
+        files = [
+            Path(f"src/schemas/v1/examples/{file}")
+            for file in os.listdir("src/schemas/v1/examples/")
+            if file.endswith(".json")
+        ]
+        for example in files:
+            with self.subTest(msg=str(example)):
+                data = json.loads(example.read_text())
+                validate(instance=data, schema=self.schema)
 
 
 class TestV1HappyPath(TestBaseClass):
